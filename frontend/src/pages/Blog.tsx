@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useBlogs } from "../hooks"
 import { FullBlog } from "../components/FullBlog";
-import { CustomLoader1 } from "../components/CustomLoader.js";
+import { CustomLoader } from "../components/CustomLoader.js";
 
 
 
@@ -15,7 +15,7 @@ export const Blog = ()=>{
         return (
           <div className="flex flex-col justify-center h-screen">
             <div className="flex justify-center">
-              <CustomLoader1/>
+              <CustomLoader/>
             </div>
           </div>
         );

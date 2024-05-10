@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { BACKEND_URL } from "./config"
 import { useNavigate } from "react-router-dom"
-import { CustomLoader } from "../components/CustomLoader1"
+import { CustomLoader } from "../components/CustomLoader"
 
 
 export const InitialPage = ()=>{
