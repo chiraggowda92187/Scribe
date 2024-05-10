@@ -1,4 +1,4 @@
-import userAvatar from "../assets/user.png"
+
 interface BLogsInput {
     authorName : string,
     date : string,
