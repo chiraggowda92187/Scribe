@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+
+
+/* .ql-container *{
+    border: none;
+} */
+
+
+.ql-toolbar.ql-snow {
+    border: none;
+}
+
+
+.ql-snow .ql-editor{
+    border: none;
+    
+}
+
+.ql-container.ql-snow {
+  border: 0;
+  font-size: large;
+  
+}
+
+.ql-editor.ql-blank::before {
+    color: rgb(184, 184, 184);
+}
