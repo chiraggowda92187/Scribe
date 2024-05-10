@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import { BACKEND_URL } from "../pages/config"
 
 export interface BlogsType {
     id : string,
@@ -18,7 +19,7 @@ export const useBlogs = ({id} : {id? : string})=>{
     
     useEffect(()=>{
         async function fetchBlogs(){
-            const response = await axios.get("http://127.0.0.1:8787/api/v1/blog/bulk", {
+            const response = await axios.get(`${BACKEND_URL}/api/v1/blog/bulk`, {
                 headers : {
                     Authorization : localStorage.getItem("token")
                 }
@@ -28,7 +29,7 @@ export const useBlogs = ({id} : {id? : string})=>{
         }
 
         async function fetchBlogWithId(){
-            const response = await axios.get(`http://127.0.0.1:8787/api/v1/blog/${id}` , {
+            const response = await axios.get(`${BACKEND_URL}/api/v1/blog/${id}` , {
                 headers : {
                     Authorization : localStorage.getItem("token")
                 }
