@@ -2,7 +2,7 @@ import { jokes } from "../assets/jokes";
 
 
 
-export const CustomLoader1 = ()=>{
+export const CustomLoader = ()=>{
     const number = Math.floor(Math.random()*20) - 1;
     
     return (

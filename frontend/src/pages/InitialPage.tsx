@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { BACKEND_URL } from "./config"
 import { useNavigate } from "react-router-dom"
-import { CustomLoader1 } from "../components/CustomLoader1"
+import { CustomLoader } from "../components/CustomLoader1"
 
 
 export const InitialPage = ()=>{
@@ -33,7 +33,7 @@ export const InitialPage = ()=>{
         return (
           <div className="flex flex-col justify-center h-screen">
             <div className="flex justify-center">
-              <CustomLoader1 />
+              <CustomLoader />
             </div>
           </div>
         );

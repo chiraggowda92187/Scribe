@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useBlogs } from "../hooks"
 import { FullBlog } from "../components/FullBlog";
-import { CustomLoader1 } from "../components/CustomLoader1.js";
+import { CustomLoader1 } from "../components/CustomLoader.js";
 
 
 
