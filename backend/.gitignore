@@ -7,6 +7,7 @@ dist
 
 wrangler.toml
 .env
+To-dos.txt
 
 # Change them to your taste:
 package-lock.json
