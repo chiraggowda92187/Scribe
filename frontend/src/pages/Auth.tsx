@@ -59,8 +59,8 @@ export const Auth = ({ type }: { type: 'signup' | 'signin' }) => {
 
   return (
     <div className="grid grid-cols-2">
-      <div className="flex justify-center flex-col">
-        <div>
+      <div className="flex justify-center flex-col w-full">
+        <div className="w-full">
           <div className="flex justify-center text-4xl font-bold">
             {type == 'signup' ? 'Create an account' : 'Login'}
           </div>
@@ -81,7 +81,7 @@ export const Auth = ({ type }: { type: 'signup' | 'signin' }) => {
               </>
             )}
           </div>
-          <div>
+          <div className="grid justify-items-center">
             {type == 'signup' ? (
               <LabelledInputbox
                 label="Username"
@@ -120,13 +120,33 @@ export const Auth = ({ type }: { type: 'signup' | 'signin' }) => {
             />
           </div>
         </div>
-        <button
-          onClick={sendRequest} 
-          type="button"
-          className="mt-8 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 "
-        >
-          {type === 'signup' ? 'Sign up' : 'Sign in'}
-        </button>
+        <div className="grid justify-items-center">
+          <button
+            onClick={sendRequest}
+            type="button"
+            className="mt-8 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700 w-6/12 "
+          >
+            {type === 'signup' ? 'Sign up' : 'Sign in'}
+          </button>
+          <div className='pt-3 w-full flex justify-center'>
+            <div className="w-1/3 font-medium bg-slate-100 p-4 rounded-lg text-sm text-slate-800">
+              <span className="font-bold">💡 Note:</span>
+              <div className="mt-2">
+                If you are here to just checkout the website you can use these
+                credentials,
+                <div className="mt-2">
+                  <div>
+                    Username :{' '}
+                    <span className="font-mono">johnmarston1@gmail.com</span>
+                  </div>
+                  <div>
+                    Password : <span className="font-mono">password</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <Quote></Quote>
     </div>

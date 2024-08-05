@@ -32,30 +32,39 @@ verifyRouter.get('/', async (c) => {
       error: 'Invalid token or token expired!d',
     });
   }
-  const verifiedResponse = await verify(token, c.env.JWT_SECRET, 'HS256');
-  if (!verifiedResponse) {
-    //console.log(verifiedResponse)
-    c.status(403);
+  try {
+    const verifiedResponse = await verify(token, c.env.JWT_SECRET, 'HS256');
+    if (!verifiedResponse) {
+      //console.log(verifiedResponse)
+      c.status(403);
+      return c.json({
+        success: false,
+        error: 'User unauthorized..!',
+      });
+    }
+    const prisma = new PrismaClient({
+      datasourceUrl: c.env.DATABASE_URL,
+    }).$extends(withAccelerate());
+    const user = await prisma.user.findFirst({
+      where: {
+        id: verifiedResponse.id,
+      },
+    });
+    if (!user) {
+      c.status(403);
+      return c.json({ success: false, message: 'user not found...!' });
+    }
+    return c.json({
+      success: true,
+      userName: user?.name,
+      userId: user?.id,
+    });
+  } catch (error) {
+    console.log("Error while verifying api : ,",error)
     return c.json({
       success: false,
       error: 'User unauthorized..!',
     });
   }
-  const prisma = new PrismaClient({
-    datasourceUrl: c.env.DATABASE_URL,
-  }).$extends(withAccelerate());
-  const user = await prisma.user.findFirst({
-    where: {
-      id: verifiedResponse.id,
-    },
-  });
-  if (!user) {
-    c.status(403);
-    return c.json({ success: false, message: 'user not found...!' });
-  }
-  return c.json({
-    success: true,
-    userName: user?.name,
-    userId: user?.id,
-  });
+  
 });

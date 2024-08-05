@@ -14,7 +14,7 @@ export const LabelledInputbox = ({
   type,
 }: labelInputType) => {
   return (
-    <div className="">
+    <div className="w-9/12">
       <div className="pt-3">
         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">
           {label}

@@ -11,13 +11,14 @@ export const InitialPage = ()=>{
     const navigate = useNavigate()
     useEffect(()=>{
         async function verify(){
+            console.log("hi")
             const response = await axios.get(`${BACKEND_URL}/api/v1/verify`,{
                 headers : {
                     Authorization : localStorage.getItem('token')
                 }
             })
-            // console.log(response)
-            if(response.data.success == false){
+            console.log("the response : ", response)
+            if(response.data.success == false || response.status!=200){
                 setIsLoading(false)
                 navigate("/signin")
             }
@@ -26,7 +27,14 @@ export const InitialPage = ()=>{
                 navigate('/blogs')
             }
         }
-        verify()      
+          
+        try {
+            verify();
+        } catch (error) {
+            localStorage.removeItem("token")
+            navigate("/signin")
+            console.log("error")
+        }    
     }, [])
 
     if(isLoading == true){
