@@ -1,16 +1,11 @@
 import { Link, useNavigate } from "react-router-dom"
 import { Avatar } from "./BlogCard"
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import { BACKEND_URL } from "../pages/config";
 
 
 export const Appbar = ()=>{
-  const [isOpen, setIsopen] = useState(false)
-  const toggleDropDown = ()=>{
-    //console.log("hit")
-    setIsopen(!isOpen)
-  }
 
   const navigate = useNavigate()
   useEffect(()=>{
@@ -36,8 +31,6 @@ export const Appbar = ()=>{
       navigate('/signin');
     }
   },[])
-  
-  const toggleContainer = useRef(null)
     return (
       <div className="border-b flex justify-between px-10 py-3">
         <Link to={'/blogs'}>
